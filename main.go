@@ -17,7 +17,7 @@ type Quotes struct {
 func main() {
 	allQuotes := make([]Quotes, 0)
 
-	collector := colly.NewCollector()
+	collector := colly.NewCollector(colly.AllowedDomains("jagokata.com", "https://jagokata.com"))
 	collector.OnHTML(".citatenlijst-auteurs li", func(h *colly.HTMLElement) {
 
 		quoteText := h.ChildText("q")
